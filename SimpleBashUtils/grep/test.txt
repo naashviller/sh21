@@ -1,0 +1,39 @@
+What is a Regular Expression in C?
+
+	Regular Expressions or Regexes are used to represent a particular pattern of a
+string or some text, it consists of a string of characters, and are used to discover
+search patterns inside the target string. Each character in the regex or a regular
+expression is either a character having a literal meaning ie. it can be either a char
+from the set of a to z or 0 to 9 or some meta character that has its special meaning.
+
+	For example - A regular expression of the form b[a-z] can have the values ba,
+bb, bc, etc. Here b is the literal character, and the set [a-z] says any lowercase letter
+between a and z should be the next character both included, the square brackets [] here
+indicate that the value enclosed inside them is a variable value and whose value is based
+on the character set written inside it, meaning it can be any possible char value from the
+given character set.
+
+	Almost every programming language supports regex, in fact, if we normally talk about
+most the text processing applications like lexers, advanced text editors, and some rich markdown
+editors they as well use regex as a use case of string matching.
+
+	Regex is extensively used in string matching or similar workflow applications or for
+validating inputs. Validating inputs means, suppose we are writing a program in which we only
+want to accept integer values from the user, then for that we can put a condition inside the
+scanf() function in the following way scanf("%[0-9]", &data); and because of this restriction
+the program will only accept the values from the set of 0-9 and will discard every other invalid
+input, sounds simple? even if this is seeming to be a lot at the start, no worries we will be
+writing very simple and to-the-point programs for every possible case mentioned in this article,
+so let's move forward and try to understand, what are patterns in the POSIX library.
+
+	Patterns in POSIX Library
+
+	Regex is not the property of any particular language, rather it is a term in which a
+sequence of characters is used to match a pattern in any given target string. Talking about
+POSIX is a widely known library in the C language and most of its classes are present inside
+the regex.h header file and are primarily used for the implementation of regular expressions.
+
+	Let's have a look at the below table, here we are having various POSIX classes and with
+respect to them, their character equivalent representations and their follow-up descriptions are
+given explaining what each class will return as a match.
+

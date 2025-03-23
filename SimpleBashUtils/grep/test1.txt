@@ -1,0 +1,18 @@
+Syntax of Regex
+
+The general syntax used for creating and compiling regular expressions in C is,
+regcomp(&regex, expression, flag);
+
+It takes three compulsory arguments.
+
+	regex - pointer to the memory region where the expression is matched and stored,
+meaning after the successful execution of the regcomp() function, the function
+will compile the regular expression contained in the expression argument and
+will store that to the memory location pointed by the pointer regex.
+
+	expression - pointer to a pattern of type string
+flag - specifies the type of compilation, we generally pass this value as 0.
+Return Value
+
+	The function returns the value 0 if the compilation of the regex is completed
+successfully and will return Error_code if the compilation was not successful.
