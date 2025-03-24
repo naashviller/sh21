@@ -1,0 +1,30 @@
+{
+    "files.associations": {
+        "__locale": "c",
+        "chrono": "c",
+        "functional": "c",
+        "cstdlib": "c",
+        "random": "c",
+        "test_main.h": "c",
+        "__bit_reference": "c",
+        "__node_handle": "c",
+        "atomic": "c",
+        "bitset": "c",
+        "deque": "c",
+        "__memory": "c",
+        "limits": "c",
+        "locale": "c",
+        "optional": "c",
+        "ratio": "c",
+        "system_error": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "vector": "c",
+        "cstddef": "c",
+        "charconv": "c",
+        "format": "c",
+        "array": "c",
+        "utility": "c",
+        "s21_string_scan.h": "c"
+    }
+}
