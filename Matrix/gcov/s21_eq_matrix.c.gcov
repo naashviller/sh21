@@ -1,0 +1,25 @@
+        -:    0:Source:s21_matrix_func/s21_eq_matrix.c
+        -:    1:#include "../s21_matrix.h"
+        -:    2:
+       10:    3:int s21_eq_matrix(matrix_t *A, matrix_t *B) {
+       10:    4:  int return_value = -1;
+        -:    5:
+       17:    6:  if ((s21_matrix_ptr_is_null(A) == 1) || (s21_matrix_ptr_is_null(B) == 1) ||
+       13:    7:      (s21_matrix_sizes_le_zero(A) == 1) ||
+       11:    8:      (s21_matrix_sizes_le_zero(B) == 1) ||
+        5:    9:      (s21_matrixes_sizes_is_equal(A, B) == 0)) {
+        6:   10:    return_value = FAILURE;
+        -:   11:  } else {
+        4:   12:    return_value = SUCCESS;
+       11:   13:    for (int i = 0; i < A->rows; i++) {
+       21:   14:      for (int j = 0; j < A->columns; j++) {
+       14:   15:        if (fabs(A->matrix[i][j] - B->matrix[i][j]) >= S21_FLOAT_EPS) {
+        2:   16:          return_value = FAILURE;
+        2:   17:          i = A->rows;
+        2:   18:          j = A->columns;
+        -:   19:        }
+        -:   20:      }
+        -:   21:    }
+        -:   22:  }
+       10:   23:  return return_value;
+        -:   24:}

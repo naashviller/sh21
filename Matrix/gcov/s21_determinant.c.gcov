@@ -1,0 +1,19 @@
+        -:    0:Source:s21_matrix_func/s21_determinant.c
+        -:    1:#include "../s21_matrix.h"
+        -:    2:
+       12:    3:int s21_determinant(matrix_t *A, double *result) {
+       12:    4:  int return_value = -1;
+        -:    5:
+       21:    6:  if ((s21_matrix_ptr_is_null(A) == 1) || (result == NULL) ||
+        9:    7:      (s21_matrix_sizes_le_zero(A) == 1)) {
+        4:    8:    return_value = RETURN_ERROR_INCORRECT_MARIX_1;
+       15:    9:  } else if ((s21_matrix_is_square(A) == 0) ||
+        7:   10:             (s21_matrix_element_is_nan_inf(A) == 1)) {
+        4:   11:    return_value = RETURN_CALCULATION_ERROR_2;
+        -:   12:  } else {
+        4:   13:    return_value = RETURN_OK_0;
+        4:   14:    *result = s21_determinant_calculation(A, &return_value);
+        -:   15:  }
+        -:   16:
+       12:   17:  return return_value;
+        -:   18:}

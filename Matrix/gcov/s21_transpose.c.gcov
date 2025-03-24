@@ -1,0 +1,22 @@
+        -:    0:Source:s21_matrix_func/s21_transpose.c
+        -:    1:#include "../s21_matrix.h"
+        -:    2:
+        6:    3:int s21_transpose(matrix_t *A, matrix_t *result) {
+        6:    4:  int return_value = -1;
+        -:    5:
+       10:    6:  if ((s21_matrix_ptr_is_null(A) == 1) ||
+        7:    7:      (s21_matrix_ptr_is_null(result) == 1) ||
+        3:    8:      (s21_matrix_sizes_le_zero(A) == 1)) {
+        5:    9:    return_value = RETURN_ERROR_INCORRECT_MARIX_1;
+        -:   10:  } else {
+        1:   11:    return_value = s21_create_matrix(A->columns, A->rows, result);
+        1:   12:    if (return_value == RETURN_OK_0) {
+        3:   13:      for (int i = 0; i < A->rows; i++) {
+        8:   14:        for (int j = 0; j < A->columns; j++) {
+        6:   15:          result->matrix[j][i] = A->matrix[i][j];
+        -:   16:        }
+        -:   17:      }
+        -:   18:    }
+        -:   19:  }
+        6:   20:  return return_value;
+        -:   21:}

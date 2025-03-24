@@ -1,0 +1,33 @@
+        -:    0:Source:s21_matrix_func/s21_create_matrix.c
+        -:    1:#include "../s21_matrix.h"
+        -:    2:
+       10:    3:int s21_create_matrix(int rows, int columns, matrix_t *result) {
+       10:    4:  int return_value = -1;
+        -:    5:
+       10:    6:  if ((s21_matrix_ptr_is_null(result) == 1) || (rows <= 0) || (columns <= 0)) {
+        7:    7:    return_value = RETURN_ERROR_INCORRECT_MARIX_1;
+        -:    8:  } else {
+        3:    9:    result->matrix = (double **)calloc(rows, sizeof(double *));
+        -:   10:
+        3:   11:    if (result->matrix == NULL) {
+    #####:   12:      return_value = RETURN_ERROR_INCORRECT_MARIX_1;
+        -:   13:    } else {
+        3:   14:      result->rows = rows;
+        3:   15:      result->columns = columns;
+        -:   16:
+      137:   17:      for (int i = 0; i < rows; i++) {
+      134:   18:        result->matrix[i] = (double *)calloc(columns, sizeof(double));
+      134:   19:        if (result->matrix[i] == NULL) {
+    #####:   20:          return_value = RETURN_ERROR_INCORRECT_MARIX_1;
+        -:   21:        }
+        -:   22:      }
+        -:   23:
+        3:   24:      if (return_value == RETURN_ERROR_INCORRECT_MARIX_1) {
+    #####:   25:        s21_remove_matrix(result);
+        -:   26:      } else {
+        3:   27:        return_value = RETURN_OK_0;
+        -:   28:      }
+        -:   29:    }
+        -:   30:  }
+       10:   31:  return return_value;
+        -:   32:}

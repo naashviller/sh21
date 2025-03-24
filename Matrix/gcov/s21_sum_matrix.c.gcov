@@ -1,0 +1,27 @@
+        -:    0:Source:s21_matrix_func/s21_sum_matrix.c
+        -:    1:#include "../s21_matrix.h"
+        -:    2:
+       13:    3:int s21_sum_matrix(matrix_t *A, matrix_t *B, matrix_t *result) {
+       13:    4:  int return_value = -1;
+        -:    5:
+       20:    6:  if ((s21_matrix_ptr_is_null(A) == 1) || (s21_matrix_ptr_is_null(B) == 1) ||
+       13:    7:      (s21_matrix_ptr_is_null(result) == 1) ||
+       11:    8:      (s21_matrix_sizes_le_zero(A) == 1) ||
+        5:    9:      (s21_matrix_sizes_le_zero(B) == 1)) {
+        8:   10:    return_value = RETURN_ERROR_INCORRECT_MARIX_1;
+        9:   11:  } else if ((s21_matrixes_sizes_is_equal(A, B) == 0) ||
+        5:   12:             (s21_matrix_element_is_nan_inf(A) == 1) ||
+        1:   13:             (s21_matrix_element_is_nan_inf(B) == 1)) {
+        4:   14:    return_value = RETURN_CALCULATION_ERROR_2;
+        -:   15:  } else {
+        1:   16:    return_value = s21_create_matrix(A->rows, A->columns, result);
+        1:   17:    if (return_value == RETURN_OK_0) {
+        3:   18:      for (int i = 0; i < A->rows; i++) {
+        8:   19:        for (int j = 0; j < A->columns; j++) {
+        6:   20:          result->matrix[i][j] = A->matrix[i][j] + B->matrix[i][j];
+        -:   21:        }
+        -:   22:      }
+        -:   23:    }
+        -:   24:  }
+       13:   25:  return return_value;
+        -:   26:}
